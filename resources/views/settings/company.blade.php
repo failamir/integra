@@ -474,7 +474,7 @@
                                                         src="{{ $logo . '/' . (isset($logo_dark) && !empty($logo_dark) ? $logo_dark : 'logo-dark.png') . '?timestamp=' . time() }}"
                                                         class="big-logo">
                                                 </div>
-                                                {{-- <div class="choose-files mt-5">
+                                                <div class="choose-files mt-5">
                                                     <label for="company_logo_dark">
                                                         <div class="bg-primary company_logo_update"> <i
                                                                 class="ti ti-upload px-1"></i>{{ __('Choose file here') }}
@@ -483,7 +483,7 @@
                                                             id="company_logo_dark" class="form-control file setting_logo"
                                                             data-filename="company_logo_update">
                                                     </label>
-                                                </div> --}}
+                                                </div>
                                                 @error('company_logo_dark')
                                                     <div class="row">
                                                         <span class="invalid-logo" role="alert">

@@ -179,7 +179,7 @@
             $('body').removeClass('custom-color');
             if(/^theme-\d+$/)
             {
-                $('body').removeClassRegex(/^theme-\d+$/);
+                $('body').removeClassRegex(/^theme-\d+$/);                
             }
             $('body').addClass(color_val);
             $('.theme-color').prop('checked', false);
@@ -188,7 +188,7 @@
             $(this).addClass('active_color');
             $(`input[value=${color_val}]`).prop('checked', true);
         });
-
+        
         $.fn.removeClassRegex = function(regex) {
     return $(this).removeClass(function(index, classes) {
         return classes.split(/\s+/).filter(function(c) {
@@ -316,7 +316,7 @@
             custthemedark.addEventListener("click", function() {
                 if (custthemedark.checked) {
                     $('#main-style-link').attr('href','{{ env("APP_URL") }}'+'/public/assets/css/style-dark.css');
-
+                    
                     document.body.style.background = 'linear-gradient(141.55deg, #22242C 3.46%, #22242C 99.86%)';
                     $('.dash-sidebar .main-logo a img').attr('src','{{$logo . '/logo-light.png'}}');
 
@@ -608,10 +608,10 @@
                                                     <input type="radio" class="theme_color d-none" name="color" value="theme-10"{{ $color == 'theme-10' ? 'checked' : '' }}>
                                                 </div>
                                                 <div class="color-picker-wrp">
-                                                        <input type="color" value="{{ $color ? $color : '' }}" class="colorPicker {{ isset($flag) && $flag == 'true' ? 'active_color' : '' }}" name="custom_color" id="color-picker">
+                                                        <input type="color" value="{{ $color ? $color : '' }}" class="colorPicker {{ isset($flag) && $flag == 'true' ? 'active_color' : '' }}" name="custom_color" id="color-picker">                                             
                                                         <input type='hidden' name="color_flag" value = {{  isset($flag) && $flag == 'true' ? 'true' : 'false' }}>
                                                 </div>
-                                            </div>
+                                            </div>   
                                         </div>
                                         <div class="col-lg-4 col-xl-4 col-md-4">
                                             <h6 class="mt-2">
@@ -2425,7 +2425,7 @@
                                                                 <span class="d-flex align-items-center">
                                                                     {{ __('Midtrans') }}
                                                                 </span>
-
+                                                                
                                                                     <div class="d-flex align-items-center">
                                                                         <label class="form-check-label m-1"
                                                                                for="is_midtrans_enabled">{{ __('Enable') }}</label>
