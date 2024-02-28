@@ -374,10 +374,10 @@
                 <div class="col-xl-3">
                     <div class="card sticky-top" style="top:30px">
                         <div class="list-group list-group-flush" id="useradd-sidenav">
-                            <a href="#brand-settings"
+                            {{-- <a href="#brand-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('Brand Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
+                            </a> --}}
                             <a href="#system-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('System Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
@@ -386,34 +386,34 @@
                                 class="list-group-item list-group-item-action border-0">{{ __('Company Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
                             </a>
-                            <a href="#email-settings"
+                            {{-- <a href="#email-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('Email Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
+                            </a> --}}
                             <a href="#tracker-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('Time Tracker Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
                             </a>
-                            <a href="#payment-settings"
+                            {{-- <a href="#payment-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('Payment Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
-                            <a href="#zoom-settings"
-                                class="list-group-item list-group-item-action border-0">{{ __('Zoom Settings') }}
+                            </a> --}}
+                            {{-- <a href="#zoom-settings"
+                                class="list-group-item list-group-item-action border-0 {{ "d-none" }} ">{{ __('Zoom Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
-                            <a href="#slack-settings"
-                                class="list-group-item list-group-item-action border-0">{{ __('Slack Settings') }}
+                            </a> --}}
+                            {{-- <a href="#slack-settings"
+                                class="list-group-item list-group-item-action border-0 {{ "d-none" }}">{{ __('Slack Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
+                            </a> --}}
                             <a href="#telegram-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('Telegram Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
                             </a>
-                            <a href="#twilio-settings"
-                                class="list-group-item list-group-item-action border-0">{{ __('Twilio Settings') }}
+                            {{-- <a href="#twilio-settings"
+                                class="list-group-item list-group-item-action border-0 {{ "d-none" }}">{{ __('Twilio Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
+                            </a> --}}
                             <a href="#email-notification-settings"
                                 class="list-group-item list-group-item-action border-0">{{ __('Email Notification Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
@@ -438,14 +438,14 @@
                                 class="list-group-item list-group-item-action border-0">{{ __('Google Calendar Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
                             </a>
-                            <a href="#webhook-settings"
-                                class="list-group-item list-group-item-action border-0">{{ __('Webhook Settings') }}
+                            {{-- <a href="#webhook-settings"
+                                class="list-group-item list-group-item-action border-0 {{ "d-none" }}">{{ __('Webhook Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
-                            <a href="#ip-restriction-settings"
-                                class="list-group-item list-group-item-action border-0">{{ __('IP Restriction Settings') }}
+                            </a> --}}
+                            {{-- <a href="#ip-restriction-settings"
+                                class="list-group-item list-group-item-action border-0 {{ "d-none" }}">{{ __('IP Restriction Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>
@@ -453,7 +453,7 @@
                 <div class="col-xl-9">
 
                     <!--Business Setting-->
-                    <div id="brand-settings" class="card">
+                    {{-- <div id="brand-settings" class="card">
                         {{ Form::model($setting, ['route' => 'business.setting', 'method' => 'POST', 'enctype' => 'multipart/form-data']) }}
                         <div class="card-header">
                             <h5>{{ __('Brand Settings') }}</h5>
@@ -723,7 +723,7 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                    </div>
+                    </div> --}}
 
                     <!--System Settings-->
                     <div id="system-settings" class="card">
@@ -1116,7 +1116,130 @@
                     </div>
 
                     <!--Email Settings-->
-                    <div id="email-settings" class="card">
+                    {{-- <div id="email-settings" class="card">
+                        <div class="card-header">
+                            <h5>{{ __('Email Settings') }}</h5>
+                        </div>
+                        {{ Form::model($setting, ['route' => 'company.email.settings', 'method' => 'post']) }}
+                        <div class="card-body">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_driver', __('Mail Driver'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_driver', isset($setting_admin['mail_driver']) ? $setting['mail_driver'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail Driver')]) }}
+                                        @error('mail_driver')
+                                            <span class="invalid-mail_driver" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_host', __('Mail Host'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_host', isset($setting['mail_host']) ? $setting['mail_host'] : '', ['class' => 'form-control ', 'placeholder' => __('Enter Mail Host')]) }}
+                                        @error('mail_host')
+                                            <span class="invalid-mail_driver" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_port', __('Mail Port'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_port', isset($setting['mail_port']) ? $setting['mail_port'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail Port')]) }}
+                                        @error('mail_port')
+                                            <span class="invalid-mail_port" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_username', __('Mail Username'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_username', isset($setting['mail_username']) ? $setting['mail_username'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail Username')]) }}
+                                        @error('mail_username')
+                                            <span class="invalid-mail_username" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_password', __('Mail Password'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_password', isset($setting['mail_password']) ? $setting['mail_password'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail Password')]) }}
+                                        @error('mail_password')
+                                            <span class="invalid-mail_password" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_encryption', __('Mail Encryption'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_encryption', isset($setting['mail_encryption']) ? $setting['mail_encryption'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail Encryption')]) }}
+                                        @error('mail_encryption')
+                                            <span class="invalid-mail_encryption" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_from_address', __('Mail From Address'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_from_address', isset($setting['mail_from_address']) ? $setting['mail_from_address'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail From Address')]) }}
+                                        @error('mail_from_address')
+                                            <span class="invalid-mail_from_address" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{ Form::label('mail_from_name', __('Mail From Name'), ['class' => 'form-label']) }}
+                                        {{ Form::text('mail_from_name', isset($setting['mail_from_name']) ? $setting['mail_from_name'] : '', ['class' => 'form-control', 'placeholder' => __('Enter Mail From Name')]) }}
+                                        @error('mail_from_name')
+                                            <span class="invalid-mail_from_name" role="alert">
+                                                <strong class="text-danger">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card-footer d-flex justify-content-end">
+                                <div class="form-group me-2">
+                                    <a href="#" data-url="{{ route('test.mail') }}"
+                                        data-title="{{ __('Send Test Mail') }}" class="btn btn-primary send_email ">
+                                        {{ __('Send Test Mail') }}
+                                    </a>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" value="{{ __('Save Changes') }}">
+                                </div>
+                            </div>
+                        </div>
+
+                        {{ Form::close() }}
+                    </div> --}}
+
+                    {{-- <div id="email-settings" class="card">
                         <div class="card-header">
                             <h5>{{ __('Email Settings') }}</h5>
                         </div>
@@ -1237,7 +1360,7 @@
                         </div>
 
                         {{ Form::close() }}
-                    </div>
+                    </div> --}}
 
                     <!--Time-Tracker Settings-->
                     <div id="tracker-settings" class="card">
@@ -1270,7 +1393,7 @@
                     </div>
 
                     <!--Payment Settings-->
-                    <div class="card" id="payment-settings">
+                    {{--   <div class="card" id="payment-settings">
                         <div class="card-header">
                             <h5>{{ 'Payment Settings' }}</h5>
                             <small
@@ -2367,9 +2490,9 @@
                                                             data-bs-parent="#accordionExample">
                                                             <div class="accordion-body">
                                                                 <div class="col-md-12 pb-4">
-                                                                    {{--                                                                        <label class="coingate-label col-form-label" --}}
+                                                                    {{--                                                                        <label class="coingate-label col-form-label"
                                                                     {{--                                                                               for="iyzipay_mode">{{ __('Iyzipay Mode') }}</label> --}}
-                                                                    {{--                                                                        <br> --}}
+                                                                    {{--                                                                        <br>
                                                                     <div class="d-flex">
                                                                         <div class="mr-2" style="margin-right: 15px;">
                                                                             <div class="border card p-1">
@@ -3124,9 +3247,12 @@
                         </div>
                         </form>
                     </div>
+                    --}}
 
                     <!--Zoom - Metting Settings-->
-                    <div id="zoom-settings" class="card">
+                    {{-- @dd(Auth::user()) --}}
+
+                    {{-- <div id="zoom-settings" class="card {{ "d-none"  }}" >
                         <div class="card-header">
                             <h5>{{ __('Zoom Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Zoom settings') }}</small>
@@ -3155,10 +3281,10 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                    </div>
+                    </div> --}}
 
                     <!--Slack Settings-->
-                    <div id="slack-settings" class="card">
+                    {{-- <div id="slack-settings" class="card {{ "d-none" }}">
                         <div class="card-header">
                             <h5>{{ __('Slack Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Slack settings') }}</small>
@@ -3390,7 +3516,7 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                    </div>
+                    </div> --}}
 
                     <!--Telegram Settings-->
                     <div id="telegram-settings" class="card">
@@ -3658,7 +3784,7 @@
                     </div>
 
                     <!--Twilio Settings-->
-                    <div id="twilio-settings" class="card">
+                    {{-- <div id="twilio-settings" class="card {{ "d-none" }}">
                         <div class="card-header">
                             <h5>{{ __('Twilio Settings') }}</h5>
                             <small class="text-muted">{{ __('Edit your Twilio settings') }}</small>
@@ -3795,7 +3921,7 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                    </div>
+                    </div> --}}
 
                     <!--Email Notification Settings-->
                     <div id="email-notification-settings" class="card">
@@ -4146,7 +4272,7 @@
 
                     <!--End HRM letter Settings-->
 
-                    <div id="google-calender" class="card">
+                    <div id="google-calender" class="card ">
                         <div class="col-md-12">
                             {{ Form::open(['url' => route('google.calender.settings'), 'enctype' => 'multipart/form-data']) }}
                             <div class="card-header">
@@ -4192,7 +4318,8 @@
                         </div>
                     </div>
 
-                    <div id="webhook-settings" class="card">
+                    <!-- Webhook-Settings -->
+                    {{-- <div id="webhook-settings" class="card {{ "d-none" }}">
                         <div class="col-md-12">
                             <div class="card-header">
                                 <div class="row">
@@ -4272,9 +4399,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div id="ip-restriction-settings" class="card">
+                    <!-- Ip Restriction Settings -->
+                    {{-- <div id="ip-restriction-settings" class="card {{ "d-none" }}">
                         <div class="col-md-12">
                             <div class="card-header">
                                 <div class="row">
@@ -4344,7 +4472,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
