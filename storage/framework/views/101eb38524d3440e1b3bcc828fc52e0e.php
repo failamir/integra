@@ -391,9 +391,9 @@
                             <a href="#cache-settings" class="list-group-item list-group-item-action border-0"><?php echo e(__('Cache Settings')); ?>
 
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0"><?php echo e(__('Chat GPT Settings')); ?>
+                            <!-- <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0"><?php echo e(__('Chat GPT Settings')); ?>
 
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a> -->
 
                         </div>
                     </div>
@@ -3442,7 +3442,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
 
                     
-                    <div id="chat-gpt-settings" class="card">
+                    <!-- <div id="chat-gpt-settings" class="card">
                         <div class="card-header">
                             <h5><?php echo e(__('Chat GPT Settings')); ?></h5>
                         </div>
@@ -3469,7 +3469,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         <?php echo e(Form::close()); ?>
 
-                    </div>
+                    </div> -->
                     
 
                 </div>

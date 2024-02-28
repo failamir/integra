@@ -382,8 +382,8 @@
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
                             <a href="#cache-settings" class="list-group-item list-group-item-action border-0">{{ __('Cache Settings') }}
                                 <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
-                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a>
+                            <!-- <a href="#chat-gpt-settings" class="list-group-item list-group-item-action border-0">{{ __('Chat GPT Settings') }}
+                                <div class="float-end"><i class="ti ti-chevron-right"></i></div></a> -->
 
                         </div>
                     </div>
@@ -3099,7 +3099,7 @@
                     </div>
 
                     {{-- chat gpt settings --}}
-                    <div id="chat-gpt-settings" class="card">
+                    <!-- <div id="chat-gpt-settings" class="card">
                         <div class="card-header">
                             <h5>{{ __('Chat GPT Settings') }}</h5>
                         </div>
@@ -3120,7 +3120,7 @@
                                 <input class="btn btn-print-invoice btn-primary m-r-10" type="submit" value="{{ __('Save Changes') }}">
                             </div>
                         {{ Form::close() }}
-                    </div>
+                    </div> -->
                     {{--  End for all settings tab --}}
 
                 </div>
